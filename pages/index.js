@@ -14,7 +14,6 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<h1 className="text-2xl color-red">Test</h1>
 		</>
 	);
 }
