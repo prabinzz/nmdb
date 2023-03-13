@@ -6,6 +6,13 @@ module.exports = {
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
+		container: {
+			margin: {
+				lg: "15vw",
+				md: "6vw",
+				sm: "2w",
+			},
+		},
 		extend: {
 			colors: {
 				"c-dark": "#202125",

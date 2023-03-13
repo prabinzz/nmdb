@@ -15,7 +15,7 @@ const TopSearch = ({ className }) => {
 		<div className={className}>
 			<span className="font-medium">Top Search:</span>
 			{topSearchList.map((i, index) => (
-				<Link className={linkClass} href="/">
+				<Link key={index} className={linkClass} href="/">
 					{index + 1 < topSearchList.length ? i + "," : i}
 				</Link>
 			))}
