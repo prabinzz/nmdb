@@ -14,8 +14,7 @@ const NavHome = () => {
 				<span>Menu</span>
 			</div>
 			<div
-				className={`max-sm:flex max-sm:flex-col max-sm:top-20 max-sm:bg-c-semi-dark/80 max-sm:w-full 
-        max-sm:text-center max-sm:text-xl max-sm:gap-4 max-sm:py-4 max-sm:rounded-xl ${
+				className={`max-sm:flex max-sm:flex-col max-sm:top-20 max-sm:bg-c-semi-dark/80 max-sm:w-full max-sm:text-center max-sm:text-xl max-sm:gap-4 max-sm:py-4 max-sm:rounded-xl ${
 					navToggle ? "absolute" : "max-sm:hidden"
 				}`}
 			>
