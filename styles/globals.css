@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	@apply bg-c-dark h-full overflow-x-hidden text-c-light;
+}
+
+#__next {
+	@apply h-full;
+}
+
+html {
+	@apply h-full;
+}
