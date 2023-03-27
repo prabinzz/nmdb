@@ -1,11 +1,14 @@
+import DisplayQnA from "@/components/DisplayQnA";
 import NavHome from "@/components/NavHome";
+import ShareButtons from "@/components/ShareButtons";
 import TopSearch from "@/components/TopSearch";
+import TrendingPosts from "@/components/TrendingPosts";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Home() {
 	return (
 		<>
-			<div className="bg-[url(/images/cover1.jpg)] w-full bg-no-repeat bg-center bg-fixed bg-cover">
+			<div className="bg-[url(/images/cover1.jpg)] w-full bg-no-repeat bg-center bg-fixed bg-cover mb-8">
 				<div className="bg-c-dark/75 w-full h-full">
 					<div className="container relative w-full mx-auto">
 						<NavHome />
@@ -38,6 +41,13 @@ export default function Home() {
 							<img className="w-[80%]" src="/images/display1.png" />
 						</div>
 					</div>
+				</div>
+			</div>
+			<div className="container mx-auto">
+				<ShareButtons />
+				<div className="flex gap-8 mt-8">
+					<DisplayQnA />
+					<TrendingPosts className="lg:w-[400px]" />
 				</div>
 			</div>
 		</>
