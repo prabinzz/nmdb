@@ -7,10 +7,9 @@ module.exports = {
 	],
 	theme: {
 		container: {
-			margin: {
-				lg: "15vw",
-				md: "6vw",
-				sm: "2w",
+			screens: {
+				// default: "500px",
+				lg: "1200px",
 			},
 		},
 		extend: {
@@ -20,6 +19,9 @@ module.exports = {
 				"c-light": "#fff",
 				"c-semi-light": "#ccc",
 				"c-primary": "#cae962",
+				"c-facebook": "#4267B2",
+				"c-twitter": "#1DA1F2",
+				"c-reddit": "#ff4500",
 			},
 		},
 	},
