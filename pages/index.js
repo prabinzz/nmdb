@@ -2,7 +2,6 @@ import DisplayQnA from "@/components/DisplayQnA";
 import NavHome from "@/components/NavHome";
 import ShareButtons from "@/components/ShareButtons";
 import TopSearch from "@/components/TopSearch";
-import TrendingPosts from "@/components/TrendingPosts";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Home() {
@@ -47,7 +46,7 @@ export default function Home() {
 				<ShareButtons />
 				<div className="flex gap-8 mt-8">
 					<DisplayQnA />
-					<TrendingPosts className="lg:w-[400px]" />
+					<div className="lg:w-[400px]" />
 				</div>
 			</div>
 		</>
