@@ -22,7 +22,7 @@ const login = () => {
 							{/* <!-- Email input --> */}
 							<div className="relative mb-6">
 								<label
-									for="exampleFormControlInput2"
+									htmlFor="exampleFormControlInput2"
 									className="pointer-events-none max-w-[90%] truncate pt-[0.37rem] leading-[2.15] text-neutral-500  dark:text-neutral-200"
 								>
 									Email address
@@ -38,7 +38,7 @@ const login = () => {
 							{/* <!-- Password input --> */}
 							<div className="relative mb-6">
 								<label
-									for="exampleFormControlInput22"
+									htmlFor="exampleFormControlInput22"
 									className="pointer-events-none max-w-[90%] truncate pt-[0.37rem] leading-[2.15] text-neutral-500  dark:text-neutral-200"
 								>
 									Password
