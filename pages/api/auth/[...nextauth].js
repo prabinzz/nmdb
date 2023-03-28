@@ -1,26 +1,32 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from "next-auth/providers/credentials";
-export const authOptions = {
+import GithubProvider from "next-auth/providers/github";
+import AppleProvider from "next-auth/providers/apple";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export default NextAuth({
+	adapter: PrismaAdapter(prisma),
 	providers: [
-		CredentialsProvider({
-			secret: process.env.AUTH_SECRET,
-			credentials: {
-				email: { label: "email" },
-				passwrod: { label: "password", type: "password" },
-			},
-		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			authorization: {
-				params: {
-					prompt: "consent",
-					access_type: "offline",
-					response_type: "code",
-				},
-			},
 		}),
 	],
-};
-export default NextAuth(authOptions);
+	// pages: {
+	// 	signIn: "/auth/sign_in",
+	// },
+	callbacks: {
+		async session({ session, user }) {
+			return Promise.resolve({
+				...session,
+				user: {
+					...session.user,
+					id: user.id,
+				},
+			});
+		},
+	},
+});
