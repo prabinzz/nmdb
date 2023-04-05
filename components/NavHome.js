@@ -23,19 +23,19 @@ const NavHome = () => {
 						Home
 					</li>
 				</Link>
-				<Link href="/">
+				<Link href="/home">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
-						Home
+						Movies
 					</li>
 				</Link>
-				<Link href="/">
+				<Link href="/auth/login">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
-						Home
+						Loggin
 					</li>
 				</Link>
-				<Link href="/">
+				<Link href="/dashboard">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
-						Home
+						Dashboard
 					</li>
 				</Link>
 				<Link href="/">
