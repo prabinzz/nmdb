@@ -45,6 +45,22 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  privateList   String? @unique
   Account       Account[]
   Session       Session[]
+  PrivateList   PrivateList? @relation(fields: [privateList], references: [id], onDelete: Cascade)
 }
+
+model PrivateList {
+  id String @id @default(cuid()) @map("_id")
+  user  User?
+}
+
+model Movie{
+  id String @id @default(cuid()) @map("_id")
+  name String
+  tags String[]
+  description String
+  released DateTime
+  genres String[]
+  }
