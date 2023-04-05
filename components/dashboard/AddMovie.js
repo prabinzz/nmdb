@@ -1,18 +1,44 @@
-import { setMovieName, setTags } from "@/lib/slices/newMovieSlice";
+import {
+	setMovieName,
+	setTags,
+	setDescription,
+	setGenere,
+	setReleased,
+} from "@/lib/slices/newMovieSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "./Header";
+import { data } from "autoprefixer";
+import axios from "axios";
 
 const AddMovie = () => {
 	const dispatch = useDispatch();
-	const { name } = useSelector((state) => state.newMovie);
-	const onSubmit = (e) => {
+	const {
+		name,
+		tagsString,
+		tags,
+		genereString,
+		generes,
+		description,
+		released,
+	} = useSelector((state) => state.newMovie);
+	const onSubmit = async (e) => {
 		e.preventDefault();
+		const response = await axios.post("/api/test", {
+			name: name,
+			tags: tags,
+			description: description,
+			released: released,
+			genres: generes,
+		});
+		console.log(response);
 	};
 
 	return (
-		<div className="text-c-semi-dark w-full px-10">
-			<form onSubmit={onSubmit}>
-				<div className="flex flex-col">
+		<div className="text-c-semi-dark w-full px-10 mt-8">
+			<Header title="Add New Movie" />
+			<form className="max-w-2xl" onSubmit={onSubmit}>
+				<div className="flex flex-col gap-4">
 					<div className="flex flex-row gap-4">
 						<div className="w-1/2">
 							<label htmlFor="name"> Name:</label>
@@ -29,10 +55,39 @@ const AddMovie = () => {
 							<input
 								type="text"
 								onChange={(e) => dispatch(setTags(e.target.value))}
+								value={tagsString}
 								name="tags"
 							/>
 						</div>
 					</div>
+					<div className="flex flex-col w-full">
+						<label htmlFor="description">Description: </label>
+						<textarea
+							name="description"
+							onChange={(e) => dispatch(setDescription(e.target.value))}
+							value={description}
+							rows="10"
+						></textarea>
+					</div>
+					<div className="flex flex-col w-full">
+						<label htmlFor="released">Released Date: </label>
+						<input
+							type="date"
+							onChange={(e) => dispatch(setReleased(e.target.value))}
+							value={released}
+							name="released"
+						/>
+					</div>
+					<div className="flex flex-col w-full">
+						<label htmlFor="genere">Genere Date: </label>
+						<input
+							type="text"
+							onChange={(e) => dispatch(setGenere(e.target.value))}
+							value={genereString}
+							name="genere"
+						/>
+					</div>
+					<input type="submit" value="Submit" />
 				</div>
 			</form>
 		</div>
