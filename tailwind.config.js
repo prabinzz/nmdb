@@ -23,6 +23,9 @@ module.exports = {
 				"c-twitter": "#1DA1F2",
 				"c-reddit": "#ff4500",
 			},
+			fontFamily: {
+				roboto: ["Roboto"],
+			},
 		},
 	},
 	plugins: [],
