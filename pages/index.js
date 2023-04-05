@@ -2,9 +2,14 @@ import DisplayQnA from "@/components/DisplayQnA";
 import NavHome from "@/components/NavHome";
 import ShareButtons from "@/components/ShareButtons";
 import TopSearch from "@/components/TopSearch";
+import { useSession } from "next-auth/react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Home() {
+	const { data: session, status } = useSession();
+	if (status === "loading") {
+		return <p>Loading...</p>;
+	}
 	return (
 		<>
 			<div className="bg-[url(/images/cover1.jpg)] w-full bg-no-repeat bg-center bg-fixed bg-cover mb-8">
