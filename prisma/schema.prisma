@@ -63,4 +63,8 @@ model Movie{
   description String
   released DateTime
   genres String[]
+  likes Int @default(0)
+  views Int @default(0)
+  videoid String
+  image String
   }

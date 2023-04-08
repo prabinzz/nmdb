@@ -1,4 +1,5 @@
 import Toast from "@/components/Toast";
+import YoutubeEmbed from "@/components/YoutubeEmbeded";
 import { signOut, useSession } from "next-auth/react";
 import React, { useState } from "react";
 
@@ -29,6 +30,7 @@ const Home = () => {
 					onClose={() => setToast(false)}
 				/>
 			)}
+			<YoutubeEmbed embedId="Xer99UageNw" />
 		</div>
 	);
 };

@@ -4,8 +4,8 @@ import {
 	setDescription,
 	setGenere,
 	setReleased,
-	setVideoId,
 	setImage,
+	setImageUrl,
 } from "@/lib/slices/newMovieSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,7 @@ import Header from "./Header";
 import { data } from "autoprefixer";
 import axios from "axios";
 
-const AddMovie = () => {
+const AddCrew = () => {
 	const dispatch = useDispatch();
 	const {
 		name,
@@ -23,27 +23,23 @@ const AddMovie = () => {
 		generes,
 		description,
 		released,
-		videoId,
-		image,
+		image_url,
 	} = useSelector((state) => state.newMovie);
 	const onSubmit = async (e) => {
-		console.log(e.target.files);
 		e.preventDefault();
-		const formData = new FormData();
-		formData.append("name", name);
-		formData.append("tags", tags);
-		formData.append("description", description);
-		formData.append("released", released);
-		formData.append("genres", generes);
-		formData.append("videoid", videoId);
-		formData.append("image", image);
-		const response = await axios.post("/api/test", formData);
+		const response = await axios.post("/api/test", {
+			name: name,
+			tags: tags,
+			description: description,
+			released: released,
+			genres: generes,
+		});
 		console.log(response);
 	};
 
 	return (
 		<div className="text-c-semi-dark w-full mt-8">
-			<Header title="Add New Movie" />
+			<Header title="Add New AddCrew" />
 			<form className="max-w-2xl px-8" onSubmit={onSubmit}>
 				<div className="flex flex-col gap-4">
 					<div className="flex flex-row gap-4">
@@ -94,23 +90,6 @@ const AddMovie = () => {
 							name="genere"
 						/>
 					</div>
-					<div className="flex flex-col w-full">
-						<label htmlFor="genere">Youtube Video ID: </label>
-						<input
-							type="text"
-							onChange={(e) => dispatch(setVideoId(e.target.value))}
-							value={videoId}
-							name="videoid"
-						/>
-					</div>
-					<div className="flex flex-col w-full">
-						<label htmlFor="genere">Image: </label>
-						<input
-							type="file"
-							onChange={(e) => dispatch(setImage(e.target.files[0]))}
-							name="image"
-						/>
-					</div>
 					<input type="submit" value="Submit" />
 				</div>
 			</form>
@@ -118,4 +97,4 @@ const AddMovie = () => {
 	);
 };
 
-export default AddMovie;
+export default AddCrew;

@@ -24,15 +24,17 @@ export default function Page() {
 		);
 	}
 	return (
-		<div className="flex bg-white">
-			<SideBar />
-			<div className="flex-grow">
-				{page == "new-movie" && <AddMovie />}
-				{/* Other pages */}
-			</div>
+		<div className="w-full min-h-screen bg-white">
+			<div className="container mx-auto flex">
+				<SideBar />
+				<div className="flex-grow">
+					{page == "new-movie" && <AddMovie />}
+					{/* Other pages */}
+				</div>
 
-			<div className="w-72 h-screen bg-gray-200">
-				<AddMovieSideValues />
+				<div className="w-72 h-scree">
+					<AddMovieSideValues />
+				</div>
 			</div>
 		</div>
 	);
