@@ -27,14 +27,16 @@ export default async function (req, res) {
 			field: isValid.error.details[0].context.key,
 		});
 	const file = req.files[0];
-	console.log(file.originalname.split("."));
-	const image_path = `./public/uploads/${name.replace(
+	const image_path = `/public/uploads/${name.replaceAll(
 		" ",
 		"_"
 	)}.${file.originalname.split(".").pop()}`;
 
-	await writeFile(image_path, file.buffer);
-	const data = { ...isValid.value, image: image_path };
+	await writeFile("." + image_path, file.buffer);
+	const data = {
+		...isValid.value,
+		image: `/${image_path.split("/").slice(2).join("/")}`,
+	};
 	const newMovie = await prisma.movie.create({ data: data });
 	res.send({ error: "false", data: newMovie, file: req.files });
 }
