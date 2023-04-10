@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 
@@ -13,14 +14,14 @@ const MoviesCard = ({ movie }) => {
 					height="1000"
 					src={movie.image}
 				/>
-				<div className="w-full h-full bg-black opacity-0 transition-all group-hover:opacity-50 absolute top-0 left-0">
-					<div>
+				<div className="w-full h-full bg-black opacity-0 transition-all group-hover:opacity-80 absolute top-0 left-0">
+					<div className="flex h-full flex-col items-center justify-center">
 						<div>
-							<FaHeart />
-							<div>{movie.likes}</div>
-						</div>
-						<div>
-							<button>View More</button>
+							<Link href={`/home/movie?id=${movie.id}`}>
+								<button className="bg-c-primary text-gray-200 px-3 py-2 rounded-xl shadow-md">
+									View More
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>
