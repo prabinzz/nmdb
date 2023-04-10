@@ -1,9 +1,7 @@
 import NewMovieSchema from "@/lib/joi_schema/NewMovie";
-import { PrismaClient } from "@prisma/client";
 import multer from "multer";
 import { writeFile } from "fs/promises";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export default async function (req, res) {
 	await new Promise((resolve) => {
