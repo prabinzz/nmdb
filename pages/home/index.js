@@ -22,7 +22,7 @@ const Home = () => {
 	};
 	return (
 		<div className="w-full absolute top-0 left-0 min-h-screen bg-c-primary">
-			<div className="container-movies mx-auto bg-gray-900 rounded-3xl min-h-full">
+			<div className="container-movies mx-auto bg-gray-900 rounded-3xl min-h-[90vh]">
 				<div className="flex p-12">
 					<SideBar className="w-80" />
 					<MoviesMain className="" />

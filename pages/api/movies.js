@@ -2,6 +2,15 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 export default async function (req, res) {
-	const movies = await prisma.movie.findMany();
-	res.send(movies);
+	console.log(req.query);
+	if (req.query.name) {
+		console.log("test");
+		const movies = await prisma.movie.findMany({
+			where: { name: { contains: "p*", mode: "insensitive" } },
+		});
+		res.send(movies);
+	} else {
+		const movies = await prisma.movie.findMany();
+		res.send(movies);
+	}
 }

@@ -68,3 +68,10 @@ model Movie{
   videoid String
   image String
   }
+
+model Rating{
+    id String @id @default(cuid()) @map("_id")
+    user String
+    movie String
+    rate Int
+}
