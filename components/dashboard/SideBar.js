@@ -8,7 +8,7 @@ import { BiMovie as MovieIcon } from "react-icons/bi";
 const SideItem = ({ href, name, icon }) => {
 	return (
 		<Link href={href}>
-			<div className=" text-xl px-3 py-2 flex items-center gap-4 border-b-2 hover:border-c-primary border-white">
+			<div className=" text-xl px-3 text-gray-300 py-2 flex items-center gap-4">
 				<div className="text-base">{icon}</div>
 				<p>{name}</p>
 			</div>
@@ -16,11 +16,11 @@ const SideItem = ({ href, name, icon }) => {
 	);
 };
 
-const SideBar = () => {
+const SideBar = ({ className }) => {
 	return (
-		<div className="w-72 min-h-screen border-r">
+		<div className={`w-72 min-h-screen ${className}`}>
 			<div className="flex flex-col text-c-semi-dark">
-				<div className="w-[200px] mx-auto mt-8">
+				<div className="w-[200px] mx-auto mb-8">
 					<Image width="200" height="200" src={Logo} alt="Logo"></Image>
 				</div>
 				<SideItem
@@ -31,6 +31,11 @@ const SideBar = () => {
 				<SideItem
 					href="/dashboard?page=new-crew"
 					name="Add Crew"
+					icon={<CrewIcon />}
+				/>
+				<SideItem
+					href="/dashboard?page=update-movie"
+					name="Update Movie"
 					icon={<CrewIcon />}
 				/>
 			</div>

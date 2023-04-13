@@ -25,3 +25,7 @@ label {
 input {
 	@apply w-full;
 }
+
+.input-theme {
+	@apply bg-gray-700 rounded-md;
+}

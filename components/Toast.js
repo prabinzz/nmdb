@@ -18,13 +18,15 @@ export default function Toast({ message, type, onClose }) {
 		<div
 			className={`toast ${
 				show ? "show" : ""
-			} absolute right-4 top-4  rounded-md flex items-center px-4 py-2 gap-4 ${
-				type == "error" ? "bg-red-500" : "bg-c-primary"
+			} fixed z-50 right-4 top-4 rounded-md flex items-center px-4 py-2 gap-4 ${
+				type == "error"
+					? "bg-gradient-to-r from-red-500 to-red-600"
+					: "bg-gradient-to-r from-green-500 to-green-600"
 			}`}
 		>
-			<div className="toast-message">{message}</div>
+			<div className="toast-message font-bold text-white">{message}</div>
 			<button
-				className="toast-close p-1 rounded-full bg-white text-black"
+				className="toast-close w-6 h-6 p-0 m-0 rounded-full bg-white text-black hover:bg-gray-300 transition-colors duration-300"
 				onClick={() => setShow(false)}
 			>
 				&#x2716;

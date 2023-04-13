@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import {
 	BiFilm,
@@ -24,20 +25,21 @@ const SideItem = ({ text, icon, onClick }) => {
 };
 
 const SideBar = ({ className }) => {
+	const router = useRouter();
 	return (
 		<div className={`gap-3 flex flex-col ${className}`}>
 			<SideItem
 				text="Movies"
 				icon={<BiFilm />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home");
 				}}
 			/>
 			<SideItem
 				text="TV Shows"
 				icon={<BiTv />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home");
 				}}
 			/>
 			<div className="w-full mt-2"></div>
@@ -45,28 +47,28 @@ const SideBar = ({ className }) => {
 				text="Action"
 				icon={<BiCameraMovie />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home?catagory=action");
 				}}
 			/>
 			<SideItem
 				text="Adventure"
 				icon={<BiCompass />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home?catagory=adventure");
 				}}
 			/>
 			<SideItem
 				text="Drama"
 				icon={<FaTheaterMasks />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home?catagory=drama");
 				}}
 			/>
 			<SideItem
 				text="All"
 				icon={<BiGridAlt />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home");
 				}}
 			/>
 			<div className="w-full mt-2"></div>
@@ -74,14 +76,14 @@ const SideBar = ({ className }) => {
 				text="Latest"
 				icon={<BiTimeFive />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home?short=latest");
 				}}
 			/>
 			<SideItem
 				text="Trending"
 				icon={<BiTrendingUp />}
 				onClick={() => {
-					console.log("test");
+					router.push("/home?catagory=trending");
 				}}
 			/>
 		</div>

@@ -9,7 +9,7 @@ export default async function (req, res) {
 	}
 	if (req.query.name) {
 		const movies = await prisma.movie.findMany({
-			where: { name: { contains: "p*", mode: "insensitive" } },
+			where: { name: { contains: req.query.name, mode: "insensitive" } },
 		});
 		return res.send(movies);
 	} else {

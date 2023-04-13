@@ -1,8 +1,6 @@
 import MovieSingle from "@/components/movies/MovieSingle";
 import SideBar from "@/components/movies/SideBar";
-import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 
 export default () => {
 	const router = useRouter();

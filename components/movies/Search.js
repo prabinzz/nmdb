@@ -14,12 +14,14 @@ const Search = () => {
 		const data = await axios.get("/api/movies", {
 			params: { name: e.target.value },
 		});
+
 		if (data.status == 200) {
 			dispatch(setMovies(data.data));
 		}
 		setIsLoading(false);
 		console.log(data);
 	};
+
 	return (
 		<div
 			className={`w-80 relative rounded-2xl py-1 ${

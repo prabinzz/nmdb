@@ -40,38 +40,42 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid()) @map("_id")
+  id            String       @id @default(cuid()) @map("_id")
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
-  privateList   String? @unique
+  privateList   String?      @unique
   Account       Account[]
   Session       Session[]
   PrivateList   PrivateList? @relation(fields: [privateList], references: [id], onDelete: Cascade)
 }
 
 model PrivateList {
-  id String @id @default(cuid()) @map("_id")
-  user  User?
+  id   String @id @default(cuid()) @map("_id")
+  user User?
+  movies String[]
 }
 
-model Movie{
-  id String @id @default(cuid()) @map("_id")
-  name String
-  tags String[]
+model Movie {
+  id          String   @id @default(cuid()) @map("_id")
+  name        String
+  tags        String[]
   description String
-  released DateTime
-  genres String[]
-  likes Int @default(0)
-  views Int @default(0)
-  videoid String
-  image String
-  }
+  released    DateTime
+  genres      String[]
+  rating      Float?
+  likes       Int      @default(0)
+  views       Int      @default(0)
+  videoid     String
+  image       String
+}
 
-model Rating{
-    id String @id @default(cuid()) @map("_id")
-    user String
-    movie String
-    rate Int
+model Rating {
+  id        String   @id @default(cuid()) @map("_id")
+  rating    Int
+  userId    String
+  movieId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
