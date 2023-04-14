@@ -7,7 +7,7 @@
 	@apply lg:max-w-[84%] mx-auto my-10;
 }
 body {
-	@apply bg-c-dark h-full overflow-x-hidden text-c-light font-roboto;
+	@apply bg-c-primary h-full text-c-light font-roboto overflow-x-scroll;
 }
 
 #__next {

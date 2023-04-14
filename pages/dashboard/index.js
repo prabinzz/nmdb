@@ -3,6 +3,7 @@ import AddMovie from "@/components/dashboard/AddMovie";
 import AddMovieSideValues from "@/components/dashboard/AddMovieSideValues";
 import SideBar from "@/components/dashboard/SideBar";
 import UpdateMovie from "@/components/dashboard/UpdateMovie";
+import ViewMovies from "@/components/movies/ViewMovies";
 import { useSession, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
@@ -33,6 +34,7 @@ export default function Page() {
 						{page == "new-movie" && <AddMovie />}
 						{/* Other pages */}
 						{page == "update-movie" && <UpdateMovie />}
+						{page == "view-movie" && <ViewMovies />}
 					</div>
 				</div>
 			</div>

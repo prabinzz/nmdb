@@ -2,8 +2,8 @@ import React from "react";
 
 const DisplayQnA = () => {
 	return (
-		<div className="leading-normal  text-c-semi-light">
-			<div>
+		<div className="leading-normal flex flex-col  gap-10  text-c-semi-light">
+			<div className="bg-gray-800 rounded-2xl px-20 py-10">
 				<h1 className="text-2xl text-white cursor-vertical-text font-medium">
 					Nepali Movie Database (NMDb)
 				</h1>
@@ -22,7 +22,7 @@ const DisplayQnA = () => {
 					Nepali movie fans to enjoy their favorite Nepali movies for free.
 				</p>
 			</div>
-			<div>
+			<div className="bg-gray-800 rounded-2xl px-20 py-10">
 				<h1 className="text-2xl text-white font-medium">1/ What is NMDB?</h1>
 				<p className="mt-2 mb-8">
 					NMDB (Nepali Movie Database) is a free online platform exclusively
@@ -32,7 +32,7 @@ const DisplayQnA = () => {
 					without any registration or payment.
 				</p>
 			</div>
-			<div>
+			<div className="bg-gray-800 rounded-2xl px-20 py-10">
 				<h1 className="text-2xl text-white font-medium">2/ Is NMDB safe?</h1>
 				<p className="mt-2 mb-8">
 					Yes, NMDB is completely safe. We ensure the safety of our users by
@@ -40,7 +40,7 @@ const DisplayQnA = () => {
 					suspicious ads and constantly monitor the site to maintain its safety.
 				</p>
 			</div>
-			<div>
+			<div className="bg-gray-800 rounded-2xl px-20 py-10">
 				<h1 className="text-2xl text-white font-medium">
 					3/ What makes NMDB the best site for Nepali movie streaming?
 				</h1>

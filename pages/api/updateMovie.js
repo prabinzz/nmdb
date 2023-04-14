@@ -10,7 +10,7 @@ export default async function (req, res) {
 	}
 	const updated_movie = await prisma.movie.update({
 		where: { id: valid.value.id },
-		data: valid.value,
+		data: valid.value.data,
 	});
 	console.log(updated_movie);
 	res.send("");

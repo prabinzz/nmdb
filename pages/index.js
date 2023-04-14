@@ -12,7 +12,7 @@ export default function Home() {
 	}
 	return (
 		<>
-			<div className="bg-[url(/images/cover1.jpg)] w-full bg-no-repeat bg-center bg-fixed bg-cover mb-8">
+			<div className="bg-[url(/images/cover1.jpg)] w-full bg-no-repeat bg-center bg-fixed bg-cover">
 				<div className="bg-c-dark/75 w-full h-full">
 					<div className="container relative w-full mx-auto">
 						<NavHome />
@@ -47,11 +47,12 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="container mx-auto">
-				<ShareButtons />
-				<div className="flex gap-8 mt-8">
-					<DisplayQnA />
-					<div className="lg:w-[400px]" />
+			<div className="w-full bg-c-dark">
+				<div className="max-w-5xl mx-auto pt-8">
+					<ShareButtons />
+					<div className="flex gap-8 mt-8">
+						<DisplayQnA />
+					</div>
 				</div>
 			</div>
 		</>

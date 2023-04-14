@@ -30,17 +30,12 @@ const NavHome = () => {
 				</Link>
 				<Link href="/auth/login">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
-						Loggin
+						Log In
 					</li>
 				</Link>
 				<Link href="/dashboard">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
 						Dashboard
-					</li>
-				</Link>
-				<Link href="/">
-					<li className="list-none inline-block mr-8 hover:text-c-primary">
-						Home
 					</li>
 				</Link>
 			</div>

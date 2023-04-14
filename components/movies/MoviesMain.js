@@ -8,21 +8,24 @@ import Search from "./Search";
 import { useSession } from "next-auth/react";
 import LoginCheck from "../LoginCheck";
 import UserDisplay from "../UserDisplay";
-import { data } from "autoprefixer";
+import { useRouter } from "next/router";
 
 const MoviesMain = ({ className }) => {
 	const { data: session, status } = useSession();
 	const dispatch = useDispatch();
-	const { movies } = useSelector((state) => state.movies);
+	const { movies, catagory } = useSelector((state) => state.movies);
 	const fetchMovies = async () => {
-		const data = await axios.get("/api/movies", { data: {} });
+		let url = "/api/movies";
+		if (catagory != "") url = url + "?catagory=" + catagory;
+		if (catagory == "All") url = "/api/movies";
+		const data = await axios.get(url, { data: {} });
 		if (data.status == 200) {
 			dispatch(setMovies(data.data));
 		}
 	};
 	useEffect(() => {
 		fetchMovies();
-	}, []);
+	}, [catagory]);
 	return (
 		<div className={`w-full ${className}`}>
 			<div className="flex flex-col gap-10">

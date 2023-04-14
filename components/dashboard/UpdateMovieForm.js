@@ -1,15 +1,27 @@
 import { format } from "date-fns";
-import React from "react";
+import React, { useState } from "react";
 import { Section } from "../movies/MovieSingle";
 import axios from "axios";
+import Toast from "../Toast";
 
 const UpdateMovieForm = ({ selectedMovie, setSelectedMovie }) => {
-	const onSubmit = (e) => {
+	const [toast, setToast] = useState({ message: "" });
+	const onSubmit = async (e) => {
 		e.preventDefault();
-		const data = axios.post(
-			"http://localhost:3000/api/updateMovie",
-			selectedMovie
-		);
+		console.log(e);
+		const data = await axios.post("http://localhost:3000/api/updateMovie", {
+			id: selectedMovie.id,
+			data: {
+				name: selectedMovie.name,
+				tags: selectedMovie.tags,
+				description: selectedMovie.description,
+				released: selectedMovie.released,
+				genres: selectedMovie.genres,
+				videoid: selectedMovie.videoid,
+			},
+		});
+		if (data.status == 200) setToast({ message: "Updated Successfully" });
+		else setToast({ message: "Update Faild" });
 	};
 	return (
 		<form className="max-w-2xl" onSubmit={onSubmit}>
@@ -117,8 +129,21 @@ const UpdateMovieForm = ({ selectedMovie, setSelectedMovie }) => {
 						type="button"
 						value="Clear"
 					/>
+					<input
+						onClick={() => setSelectedMovie([])}
+						className="bg-c-primary shadow-md w-24 px-3 py-2"
+						type="button"
+					/>
 				</div>
 			</div>
+			{toast.message != "" && (
+				<Toast
+					message={toast.message}
+					onClose={() => {
+						setToast({ message: "" });
+					}}
+				/>
+			)}
 		</form>
 	);
 };

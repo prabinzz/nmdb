@@ -7,8 +7,8 @@ const login = () => {
 		signIn("google", { callbackUrl: "/home" });
 	};
 	return (
-		<section className="h-screen container mx-auto">
-			<div className="h-full bg-gray">
+		<section className="h-screen mx-auto bg-c-primary mt-0 flex items-center justify-center">
+			<div className=" max-w-4xl bg-gray-900 rounded-3xl min-h-[40vh] p-10">
 				<div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
 					<div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
 						<img

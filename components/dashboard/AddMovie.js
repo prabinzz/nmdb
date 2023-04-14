@@ -12,9 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
 import { data } from "autoprefixer";
 import axios from "axios";
+import Toast from "../Toast";
 
 const AddMovie = () => {
 	const dispatch = useDispatch();
+	const [toast, setToast] = useState({ message: "" });
 	const {
 		name,
 		tagsString,
@@ -27,7 +29,6 @@ const AddMovie = () => {
 		image,
 	} = useSelector((state) => state.newMovie);
 	const onSubmit = async (e) => {
-		console.log(e.target.files);
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("name", name);
@@ -38,11 +39,13 @@ const AddMovie = () => {
 		formData.append("videoid", videoId);
 		formData.append("image", image);
 		const response = await axios.post("/api/test", formData);
-		console.log(response);
+		if (response.status == 200)
+			setToast({ message: "Movie Added Successfully" });
+		else setToast({ message: response.data.message || "Faild to add movie" });
 	};
 
 	return (
-		<div className="text-gray-200 w-full mt-8">
+		<div className="text-gray-200 w-full mt-3">
 			<Header title="Add New Movie" />
 			<form className="max-w-2xl px-8" onSubmit={onSubmit}>
 				<div className="flex flex-col gap-4">
@@ -124,6 +127,14 @@ const AddMovie = () => {
 					/>
 				</div>
 			</form>
+			{toast.message != "" && (
+				<Toast
+					message={toast.message}
+					onClose={() => {
+						setToast({ message: "" });
+					}}
+				/>
+			)}
 		</div>
 	);
 };
