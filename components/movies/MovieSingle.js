@@ -26,9 +26,7 @@ const MovieSingle = ({ className, id }) => {
 	const [toast, setToast] = useState({ message: "" });
 	const [movie, setMovie] = useState(null);
 	const fetchMovie = async (movieId) => {
-		const movie = await axios.get(
-			`http://localhost:3000/api/movies?id=${movieId}`
-		);
+		const movie = await axios.get(`/api/movies?id=${movieId}`);
 		if (movie.status == 200) {
 			setMovie(movie.data[0]);
 		} else {

@@ -13,7 +13,7 @@ const Home = () => {
 	};
 	const toastHandle = async () => {
 		try {
-			const response = await fetch("http://localhost:3000/api/test");
+			const response = await fetch("/api/test");
 			const data = await response.json();
 			setToast({ message: data.message });
 		} catch (error) {

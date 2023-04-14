@@ -8,9 +8,7 @@ const UpdateMovie = () => {
 	const [searchResult, setSearchResult] = useState([]);
 	const [selectedMovie, setSelectedMovie] = useState([]);
 	const fetchSearch = async (name) => {
-		const data = await axios.get(
-			`http://localhost:3000/api/movies?name=${name}`
-		);
+		const data = await axios.get(`/api/movies?name=${name}`);
 		if (data.status == 200) {
 			setSearchResult(data.data);
 		}

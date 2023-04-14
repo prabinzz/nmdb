@@ -9,7 +9,7 @@ const UpdateMovieForm = ({ selectedMovie, setSelectedMovie }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		console.log(e);
-		const data = await axios.post("http://localhost:3000/api/updateMovie", {
+		const data = await axios.post("/api/updateMovie", {
 			id: selectedMovie.id,
 			data: {
 				name: selectedMovie.name,

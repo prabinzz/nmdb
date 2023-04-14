@@ -32,9 +32,7 @@ const Items = ({ movie }) => {
 			<td className="px-16">
 				<span className="mr-4">
 					<button
-						onClick={() =>
-							router.push(`/home/movie?id=clg9z7mgz002g2lfk0rfp201r`)
-						}
+						onClick={() => router.push(`/home/movie?id=${movie.id}`)}
 						className="p=2"
 					>
 						<BsEye className="hover:text-c-primary" />
