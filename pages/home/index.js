@@ -1,3 +1,4 @@
+import Loading from "@/components/Loading";
 import Toast from "@/components/Toast";
 import YoutubeEmbed from "@/components/YoutubeEmbeded";
 import MoviesMain from "@/components/movies/MoviesMain";
@@ -7,6 +8,9 @@ import React, { useState } from "react";
 
 const Home = () => {
 	const { data: session, status } = useSession();
+	if (status === "loading") {
+		return <Loading />;
+	}
 	const [toast, setToast] = useState(null);
 	const signoutHandler = () => {
 		signOut();

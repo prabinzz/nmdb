@@ -33,7 +33,7 @@ const NavHome = () => {
 						Log In
 					</li>
 				</Link>
-				<Link href="/dashboard">
+				<Link href="/dashboard?page=new-movie">
 					<li className="list-none inline-block mr-8 hover:text-c-primary">
 						Dashboard
 					</li>

@@ -1,4 +1,5 @@
 import DisplayQnA from "@/components/DisplayQnA";
+import Loading from "@/components/Loading";
 import NavHome from "@/components/NavHome";
 import ShareButtons from "@/components/ShareButtons";
 import TopSearch from "@/components/TopSearch";
@@ -8,7 +9,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 export default function Home() {
 	const { data: session, status } = useSession();
 	if (status === "loading") {
-		return <p>Loading...</p>;
+		return <Loading />;
 	}
 	return (
 		<>

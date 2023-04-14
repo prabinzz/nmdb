@@ -31,11 +31,6 @@ const SideBar = ({ className }) => {
 					icon={<MovieIcon />}
 				/>
 				<SideItem
-					href="/dashboard?page=new-crew"
-					name="Add Crew"
-					icon={<CrewIcon />}
-				/>
-				<SideItem
 					href="/dashboard?page=update-movie"
 					name="Update Movie"
 					icon={<CrewIcon />}
