@@ -12,10 +12,10 @@ export default async function (req, res) {
 	const { name, tags, description, released, genres, videoid } = req.body;
 	let isValid = NewMovieSchema.validate({
 		name,
-		tags: tags.split(","),
+		tags: tags.split(",").map((tag) => tag.trim()),
 		description,
 		released,
-		genres: genres.split(","),
+		genres: genres.split(",").map((genre) => genre.trim()),
 		videoid,
 	});
 	if (isValid.error)
