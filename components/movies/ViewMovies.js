@@ -4,14 +4,21 @@ import axios from "axios";
 import { BsEye } from "react-icons/bs";
 import { BiTrash } from "react-icons/bi";
 import { useRouter } from "next/router";
-const Items = ({ movie }) => {
+import Toast from "../Toast";
+const Items = ({ movie, toast, removieMovie }) => {
 	const router = useRouter();
 	const deleteMovie = async (id) => {
-		const response = axios.post("/api/delete-movie", {
+		const response = await axios.post("/api/delete-movie", {
 			data: {
 				id: id,
 			},
 		});
+		if (response.status == 200) {
+			toast({ message: "Movie Deleted sucessfully" });
+			removieMovie(id);
+		} else {
+			toast({ message: "Movie Couldn't be deleted" });
+		}
 	};
 	return (
 		<tr className="bg-gray-800 hover:text-gray-700  hover:bg-white align-middle">
@@ -39,7 +46,7 @@ const Items = ({ movie }) => {
 					</button>
 				</span>
 				<span>
-					<button className="p-2">
+					<button className="p-2" onClick={(e) => deleteMovie(movie.id)}>
 						<BiTrash className="hover:text-c-primary" />
 					</button>
 				</span>
@@ -49,7 +56,17 @@ const Items = ({ movie }) => {
 };
 
 const ViewMovies = () => {
+	const [toast, setToast] = useState({ message: "" });
 	const [movies, setMovies] = useState([]);
+	const deleteMovie = (id) => {
+		setMovies((pre) => {
+			return pre.filter((i) => {
+				console.log(i, id);
+				if (i.id == id) return false;
+				else return true;
+			});
+		});
+	};
 	const fetchMovies = async () => {
 		let url = "/api/movies";
 		const data = await axios.get(url, { data: {} });
@@ -67,11 +84,23 @@ const ViewMovies = () => {
 				<div className="min-w-full table-auto">
 					<div className="">
 						{movies.map((movie) => (
-							<Items movie={movie} />
+							<Items
+								movie={movie}
+								toast={setToast}
+								removieMovie={deleteMovie}
+							/>
 						))}
 					</div>
 				</div>
 			</div>
+			{toast.message != "" && (
+				<Toast
+					message={toast.message}
+					onClose={() => {
+						setToast({ message: "" });
+					}}
+				/>
+			)}
 		</div>
 	);
 };
